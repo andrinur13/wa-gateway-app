@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  wa-gateway:
+    build: .
+    container_name: wa-gateway
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_OPTIONS: "--max_old_space_size=2048"
+      SESSION_COUNT: 4
+    restart: unless-stopped
+    # Uncomment below if you want to mount local wa_credentials for persistence
+    # volumes:
+    #   - ./wa_credentials:/app/wa_credentials
